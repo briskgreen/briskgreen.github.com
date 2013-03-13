@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <math.h>
-#include <string.h>
 
 int get_pointer(char *s)
 {
@@ -8,24 +7,23 @@ int get_pointer(char *s)
 	while(s[i++])
 		if(s[i]=='.')
 			return i;
-	return 0;
+	return -1;
 }
 
 double string_to_double(char *n)
 {
-	int len=strlen(n);
 	double result=(double)atoi(n);
 	int pointer=get_pointer(n)+1;
 	int i=0,a=1;
 
-	if(pointer==0)
+	if(!pointer)
 		return result;
 
-	while(pointer!=len)
+	while(n[pointer])
 	{
 		a*=10;
 		result+=((double)(n[pointer]-48)/a);
-		pointer++;
+		++pointer;
 	}
 
 	return result;
