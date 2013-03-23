@@ -10,7 +10,7 @@ void get_time(struct tm *tm)
 {
 	printf("请输入年份:");
 	while(scanf("%d",&tm->tm_year))
-		if(tm->tm_year<=0)
+		if(tm->tm_year<1900)
 			printf("输入错误,请重新输入:");
 		else
 			break;
